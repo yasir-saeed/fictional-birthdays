@@ -1,22 +1,16 @@
 from flask import Flask, render_template
 
-
 app = Flask(__name__)
 
-@app.route("/")
-def home():
-	return render_template("index.html")
 
-@app.route("/<name>/")
+@app.route('/<name>/')
 def user(name):
-	return f" <h1>{name}.</h1><br/> <b> Birthday: <b/> <br/> <b> Age: <b/>"
+    return render_template('index.html', content=name)
 
-@app.route("/error/")
+
+@app.route('/error/')
 def error():
-	return "error 404 page :/"
+    return 'error 404'
 
-
-if __name__ == "__main__":
-	app.run(debug = True)
-
-
+if __name__ == '__main__':
+    app.run(debug=True)
