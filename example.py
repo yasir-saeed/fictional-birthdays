@@ -8,9 +8,13 @@ def user(name):
     return render_template('index.html', content=name)
 
 
+@app.route('/')
+def home():
+	return 'Home Page'
+
 @app.route('/error/')
 def error():
-    return 'error 404'
+    return 'Error 404'
 
 if __name__ == '__main__':
     app.run(debug=True)
